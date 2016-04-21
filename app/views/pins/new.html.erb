@@ -1,0 +1,18 @@
+<h1>Add a new pin</h1>
+   <%= form_tag '/pins', method: :post do %>
+   <div class="form-group">
+     <%= label_tag :url %>
+     <%= text_field_tag :url %>  
+   </div>
+   <div class="form-group">
+     <%= label_tag :text %>
+     <%= text_field_tag :text %>  
+   </div>
+  <div class="form-group">
+    <%= label_tag :board %>
+    <%= select_tag :board, options_from_collection_for_select(@boards, "id", :name), class: "form-control" %>    
+  </div>    
+   <div>
+     <%= submit_tag 'Create Pin', class: "btn btn-default" %>
+   </div>
+<% end %>

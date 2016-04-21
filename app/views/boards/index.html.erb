@@ -1,0 +1,9 @@
+<h1>Your Trips!!!</h1>
+<% @boards.each do |board| %>
+  <h3><%= link_to "#{board.name}", "/boards/#{board.id}" %></h3>
+<% end %>
+
+<div id="map"></div>
+
+<h4><%= link_to "Create new trip", "/boards/new" %></h4>
+<h4><%= link_to "Create new pin", "/pins/new" %></h4>
