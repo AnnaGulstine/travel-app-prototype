@@ -1,3 +1,7 @@
+/* global google */
+/* eslint no-unused-vars: "marker" */
+
+$(document).ready(function(){
 var map;
 
 function initMap() {
@@ -33,6 +37,8 @@ function initMap() {
 }
 
 google.maps.event.addDomListener(window, 'load', initMap);
+
+})
 
 // function displayMarkers() {
 //   var bounds = new google.maps.LatLngBounds();
