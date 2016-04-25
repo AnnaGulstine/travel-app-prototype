@@ -1,3 +1,9 @@
+<div ng-app="app">
+  <div ng-controller="boardsController" ng-init="setup()">
+    
+  </div>
+</div>
+
 <h1>Your Trips!!!</h1>
 <% @boards.each do |board| %>
   <h3><%= link_to "#{board.name}", "/boards/#{board.id}" %></h3>

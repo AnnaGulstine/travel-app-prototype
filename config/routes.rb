@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   post '/pins' => 'pins#create'
 
   post '/search' => 'pins#run_search'
+
+  namespace :api do
+    namespace :v1 do
+      get '/boards' => 'boards#index'
+    end
+  end
 end

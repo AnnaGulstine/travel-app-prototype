@@ -1,7 +1,6 @@
 /* global google */
 /* eslint no-unused-vars: "marker" */
 
-$(document).ready(function(){
 var map;
 
 function initMap() {
@@ -12,7 +11,6 @@ function initMap() {
   };
 
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
 
   var markersData = [
     {
@@ -37,39 +35,3 @@ function initMap() {
 }
 
 google.maps.event.addDomListener(window, 'load', initMap);
-
-})
-
-// function displayMarkers() {
-//   var bounds = new google.maps.LatLngBounds();
-
-//   for (var i = 0; i < markersData.length; i++) {
-//     var latlng = new google.maps.LatLng(markersData[i].lat, markersData[i].lng);
-//     var name = markersData[i].name;
-
-//     createMarker(latlng, name);
-
-//     bounds.extend(latlng);
-//   }
-
-//   map.fitBounds(bounds);
-// }
-
-// function createMarker(latlng, name) {
-//   var marker = new google.maps.Marker({
-//     map: map,
-//     title: name
-//   });
-
-//   google.maps.event.addListener(marker, 'click', function() {
-//     var iwContent = '<div id="iw_container">' +
-//       '<div class="iw_title">' + name + '</div';
-
-//     infoWindow.setContent(iwContent);
-
-//     infoWindow.open(map, marker);
-//   });
-// }
-
-
-
