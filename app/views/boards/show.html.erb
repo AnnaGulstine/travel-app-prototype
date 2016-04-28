@@ -1,9 +1,22 @@
 <h2><%= @board.name %></h2>
 
-<% @pins.each do |pin| %>
-  <h3><%= pin.text %></h3>
-  <h3><a href="<%= pin.url %>">Link</a></h3>
-<% end %>
+<div ng-app="app">
+  <div ng-controller="pinsController" ng-init="setup()">
+
+    <div class="row">
+      <div class="col-sm-2">
+        <div ng-repeat="pin in pins">
+          <p>{{ pin.text }}</p>
+          <p><a href="{{ pin.url }}">Link</a></p>
+        </div>
+      </div>
+      <div class="col-sm-10" id="pinMap"></div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>" async defer></script>   
+
+  </div>
+</div>
+
 
 <h4><%= link_to "Add a new pin", "/pins/new" %></h4>
 <h4><%= link_to "Delete this board", "/boards/#{@board.id}", method: :delete %></h4>

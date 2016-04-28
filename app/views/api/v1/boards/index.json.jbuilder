@@ -5,4 +5,5 @@ json.array! @boards.each do |board|
   json.address board.address
   json.latitude board.latitude
   json.longitude board.longitude
+  json.pins board.pins
 end

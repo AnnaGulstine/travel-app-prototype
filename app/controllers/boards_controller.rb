@@ -10,7 +10,6 @@ class BoardsController < ApplicationController
   def show
     if current_user
       @board = Board.find_by(id: params[:id])
-      # @board = Board.where("id = ? AND user_id = ?", id: params[:id], current_user.id.to_i)
       if @board
         @pins = @board.pins
       else

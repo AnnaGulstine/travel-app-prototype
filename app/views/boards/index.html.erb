@@ -1,15 +1,18 @@
 <div ng-app="app">
   <div ng-controller="boardsController" ng-init="setup()">
-    
+
+      <h1>Your Trips</h1>
+      
+      <div ng-repeat="board in boards">
+        <h4><a href="/boards/{{ board.id }}">{{ board.name }}</a>
+        <button ng-click="newMap(board)">{{ board.name }}</button></h4>
+      </div>
+
+      <div id="map"></div>      
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>" async defer></script>   
+      
   </div>
 </div>
-
-<h1>Your Trips!!!</h1>
-<% @boards.each do |board| %>
-  <h3><%= link_to "#{board.name}", "/boards/#{board.id}" %></h3>
-<% end %>
-
-<div id="map"></div>
 
 <h4><%= link_to "Create new trip", "/boards/new" %></h4>
 <h4><%= link_to "Create new pin", "/pins/new" %></h4>
