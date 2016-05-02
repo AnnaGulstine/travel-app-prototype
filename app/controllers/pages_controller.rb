@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  def query
-    @message = params[:message]
+  def home
   end
 end

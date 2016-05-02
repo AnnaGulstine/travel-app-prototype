@@ -1,5 +1,7 @@
 <% @pins.each do |pin| %>
-<h4><a href="<%= pin.url %>">Pin URL</a></h4>
-<h4>Pin Text: <%= pin.text %></h4>
-<h4>Board name: <%= (Board.find_by(id: pin.board_id)).name %></h4>
+  <h4><a href="<%= pin.url %>">Pin URL</a></h4>
+  <h4>Pin Text: <%= pin.text %></h4>
+  <h4>Board name: <%= (Board.find_by(id: pin.board_id)).name %></h4>
 <% end %>
+
+<div id="pinMap"></div>

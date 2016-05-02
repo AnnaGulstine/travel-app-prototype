@@ -17,8 +17,10 @@ class PinsController < ApplicationController
 
   def create
     @pin = Pin.create(
+      name: params[:name],    
       url: params[:url],
       text: params[:text],
+      address: params[:address],
       board_id: params[:board]
     )    
     redirect_to "/boards"

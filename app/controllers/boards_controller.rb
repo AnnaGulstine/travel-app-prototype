@@ -13,7 +13,7 @@ class BoardsController < ApplicationController
       if @board
         @pins = @board.pins
       else
-        redirect_to "/users/sign_in"
+        redirect_to "/boards"
       end
     else
       redirect_to "/users/sign_in"
@@ -25,7 +25,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.create(
-      name: params[:name],
+      address: params[:address],
       user_id: current_user.id.to_i
     )
     redirect_to "/boards/#{@board.id}"

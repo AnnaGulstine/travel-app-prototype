@@ -7,4 +7,9 @@ class Api::V1::BoardsController < ApplicationController
     end
     render 'index.json.jbuilder'
   end
+
+  def show
+    @board = Board.find_by(id: params[:id])
+    render 'show.json.jbuilder'
+  end
 end

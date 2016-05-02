@@ -1,5 +1,6 @@
 json.array! @pins.each do |pin|
   json.url pin.url
+  json.name pin.name
   json.text pin.text
   json.boardId pin.board_id
   json.address pin.address
