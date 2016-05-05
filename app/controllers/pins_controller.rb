@@ -7,8 +7,7 @@ class PinsController < ApplicationController
   end
 
   def show
-    @board = Board.find_by(id: params[:id])
-    @pins = @board.pins
+    @pin = Pin.find_by(id: params[:id])
   end
 
   def new
@@ -25,6 +24,24 @@ class PinsController < ApplicationController
     )    
     redirect_to "/boards"
   end
+
+  def edit
+    board_id = params[:id]
+    @pin = Pin.find_by(board_id: board_id)
+  end
+
+  def update
+    pin_id = params[:id]
+    @pin = Pin.find_by(id: pin_id)
+    @pin.update(
+      url: params[:url],
+      text: params[:text],
+      address: params[:address],
+      name: params[:name]
+    )
+    flash[:success] = "Pin successfully updated!"
+    redirect_to "/pins/#{@pin.id}"
+  end  
 
   def run_search
     search_term = params[:search]

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   get '/pins/new' => 'pins#new'
   post '/pins' => 'pins#create'
+  get '/pins/:id' => 'pins#show'
+  get '/pins/:id/edit' => 'pins#edit'
+  patch '/pins/:id' => 'pins#update'  
 
   post '/search' => 'pins#run_search'
 

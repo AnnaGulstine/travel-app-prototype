@@ -1,24 +1,14 @@
-<div class="container-fluid mapContainer">
-  <div ng-app="app">
-  <div ng-controller="boardsController" ng-init="setup()">
-
-    <div class="row">
-      <div class="col-sm-2">      
-        <div ng-repeat="board in boards">
-          <h4><a href="/boards/{{ board.id }}">{{ board.address }}</a>
-          <button ng-click="newMap(board)">{{ board.address }}</button></h4>       
-        </div>
-          <p>~~~~~~~~~~~~~~~~~~~~~</p>
-          <button ng-click="zoomOut()">Zoom out</button></h4>       
-          <h4><%= link_to "Create new trip", "/boards/new" %></h4>
-          <h4><%= link_to "Create new pin", "/pins/new" %></h4>     
-      </div>
-    <div class="col-sm-10">
+<div ng-app="app">
+  <div ng-controller="boardsController" ng-init="setup()"> 
+<!--     <div ng-repeat="board in boards">
+      <h4><a href="/boards/{{ board.id }}">{{ board.address }}</a>
+      <button ng-click="newMap(board)">{{ board.address }}</button></h4>       
+    </div>  --> 
+    <div class="mapContainer">
       <div id="map"></div>      
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>" async defer></script>   
     </div>
-    </div>
-  </div>
+  <!--   </div> -->
   </div>
 </div>
 

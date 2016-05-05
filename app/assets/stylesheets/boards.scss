@@ -8,9 +8,22 @@ html, body {
 }
 #map {
   // height: 100%;
-  height: 800px;
+  width: 100%;
+  border: 2px solid black;
 }
 
 .mapContainer {
-  margin-top: 80px;
+  margin-top: 110px;
+}
+
+.navbar-transparent {
+  padding-top: 0px;
+}
+
+.navbar-nav {
+  padding-top: 25px;
+}
+
+.wrapper {
+  background-color: white;
 }

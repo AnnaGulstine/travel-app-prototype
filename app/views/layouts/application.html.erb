@@ -55,17 +55,19 @@
           <li class="slidedown">
             <a href="#">Home</a>
           </li>
+          <li><a href="/boards/new" title="newTrip">Add New Trip</a></li> 
+          <li><a href="/pins/new" title="newPin">Add New Pin</a></li> 
           <% if current_user %>     
-            <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
-          <% else %>        
-            <li><a href="/users/sign_up">Sign Up</a></li>
-            <li><a href="/users/sign_in">Log In</a></li>
-          <% end %>
-    
+              <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
+            <% else %>        
+              <li><a href="/users/sign_up">Sign Up</a></li>
+              <li><a href="/users/sign_in">Log In</a></li>
+            <% end %>
         </ul>
     
       </nav>
     </div>
+  </div>
     
     <div class="overlay-navigation-footer">
     
@@ -96,9 +98,9 @@
       
         <div class="navbar-header">
           <!-- YOU LOGO HERE -->
-<!--           <a class="navbar-brand" href='/boards'>
-            <img src="/assets/images/oysterLogo.png" width="90" alt="">
-          </a> -->
+          <a class="navbar-brand" href='/boards'>
+            <img src="/assets/oysterLogo.png" width="90" alt="">
+          </a>
         </div>
       
         <!-- ICONS NAVBAR -->
@@ -116,6 +118,9 @@
         <ul class="extra-navbar nav navbar-nav navbar-right">
           <% if current_user %>
             <li><a href="/boards" title="Home">Home</a></li>               
+            <li><a href="/boards/new" title="newTrip">Add New Trip</a></li> 
+            <li><a href="/pins/new" title="newPin">Add New Pin</a></li> 
+            <!-- <button ng-click="zoomOut()">Zoom out</button></h4>                          -->
             <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
           <% else %>              
             <li><a href="/users/sign_up">Sign Up</a></li>
