@@ -12,4 +12,9 @@ class Api::V1::BoardsController < ApplicationController
     @board = Board.find_by(id: params[:id])
     render 'show.json.jbuilder'
   end
+
+  def api_board_ids
+    @boards = current_user.boards
+    render json: @boards
+  end
 end

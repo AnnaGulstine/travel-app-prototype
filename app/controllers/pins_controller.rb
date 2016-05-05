@@ -20,7 +20,7 @@ class PinsController < ApplicationController
       url: params[:url],
       text: params[:text],
       address: params[:address],
-      board_id: params[:board]
+      board_id: params[:board_id] || session[:board_id] 
     )    
     redirect_to "/boards"
   end

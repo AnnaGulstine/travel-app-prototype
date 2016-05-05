@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get '/boards/get_id' => 'boards#api_board_ids'
       get '/boards' => 'boards#index'
       get '/boards/:id' => 'boards#show'
       get '/pins' => 'pins#index'

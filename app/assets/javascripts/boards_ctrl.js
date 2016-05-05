@@ -6,7 +6,7 @@
   
     var map;
 
-    var styles = [{"stylers":[{"hue":"#2c3e50"},{"saturation":250}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":50},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]}];
+    var styles = [{"stylers":[{"hue":"#007fff"},{"saturation":89}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}];
     
     var image = "assets/oysterMarker.png";
 
@@ -34,10 +34,6 @@
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
       var geocoder = new google.maps.Geocoder();
-      
-      var infowindow = new google.maps.InfoWindow({
-        content: ''
-      });
 
       $scope.boards.forEach(function(board) {
         var address = board.address;
