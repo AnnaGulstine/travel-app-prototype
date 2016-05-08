@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  devise_scope :user do
+    root :to => 'devise/registrations#new'
+  end
+
   get '/home' => 'pages#home'
   
-  get '/' => 'boards#index'
+  # get '/' => 'boards#index'
   get '/boards' => 'boards#index'
   get 'boards/new' => 'boards#new'
   post 'boards' => 'boards#create'

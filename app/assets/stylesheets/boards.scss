@@ -7,7 +7,6 @@ html, body {
   padding: 0;
 }
 #map {
-  // height: 100%;
   width: 100%;
   border: 2px solid black;
 }
@@ -26,7 +25,8 @@ html, body {
 }
 
 .wrapper {
-  background-color: #e3e3e3;
+  background-color: #f3f3f3;
+  height: 1000px;
 }
 
 .marginTop {
@@ -41,4 +41,8 @@ html, body {
 h1, h2, h3, h4, h5, h6, p, li {
   font-family: "Dosis", sans-serif;  
   line-height: 1.42857143;
+}
+
+.centered {
+  text-align: center;
 }

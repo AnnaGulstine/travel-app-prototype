@@ -39,7 +39,7 @@
         var address = board.address;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            map.setCenter(results[0].geometry.location);
+            // map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
               map: map,
               position: results[0].geometry.location,
@@ -53,25 +53,25 @@
         })
       });
 
-      var createBoardPins = function(inputBoard) {
-        var address = (inputBoard.address);     
-        geocoder.geocode({'address': address}, function(address) {
-          map.setCenter(address[0].geometry.location);
-          map.setZoom(12);
-          $scope.boards.forEach(function(board) {
-            board.pins.forEach(function(pin) {
-              var pinAddress = pin.address;
-                geocoder.geocode({'address': pinAddress}, function(results) {
-                  var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                  });                 
-                })
-            })
-          })
-        })
+      // var createBoardPins = function(inputBoard) {
+      //   var address = (inputBoard.address);     
+      //   geocoder.geocode({'address': address}, function(address) {
+      //     map.setCenter(address[0].geometry.location);
+      //     map.setZoom(12);
+      //     $scope.boards.forEach(function(board) {
+      //       board.pins.forEach(function(pin) {
+      //         var pinAddress = pin.address;
+      //           geocoder.geocode({'address': pinAddress}, function(results) {
+      //             var marker = new google.maps.Marker({
+      //               map: map,
+      //               position: results[0].geometry.location
+      //             });                 
+      //           })
+      //       })
+      //     })
+      //   })
 
-      }          
+      // }          
     }
     window.$scope = $scope;
   });
