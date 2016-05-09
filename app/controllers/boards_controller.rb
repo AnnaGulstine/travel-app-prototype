@@ -13,6 +13,7 @@ class BoardsController < ApplicationController
       session[:board_id] = @board.id
       if @board
         @pins = @board.pins
+        # @suggested_pins = Board.where(address: )
       else
         redirect_to "/boards"
       end
@@ -25,9 +26,13 @@ class BoardsController < ApplicationController
   end
 
   def create
+    coordinates = Geocoder.coordinates(params[:address])
+    console.log(coordinates)
     @board = Board.create(
       address: params[:address],
-      user_id: current_user.id.to_i
+      user_id: current_user.id.to_i,
+      latitude: coordinates[0],
+      longitude: coordinates[1]
     )
     redirect_to "/boards/#{@board.id}"
   end

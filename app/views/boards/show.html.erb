@@ -6,10 +6,11 @@
         <div class="col-sm-2" id="pinSidebar">
           <div ng-repeat="pin in pins">
             <h4 id="pinName">{{ pin.name }}</h4>
-            <h5><a href="{{ pin.url }}">Visit website</a></h5>          
+            <div ng-if="pin.url">
+              <h4><a href="{{ pin.url }}">Visit website</a></h4>  
+            </div>        
             <h5>{{ pin.text }}</h5>
-            <h5>{{ pin.address }}</h5>
-            <p>{{ pin.id }}</p>
+            <h5 ng-if="!pin.name">{{ pin.address }}</h5>
             <%= link_to "Edit this pin", "/pins/{{ pin.id }}/edit", class: "btn btn-default" %>
             <hr>            
           </div>

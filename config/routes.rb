@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get '/boards' => 'boards#index'
       get '/boards/:id' => 'boards#show'
       get '/pins' => 'pins#index'
+      post '/pins' => 'pins#create'
     end
   end
 end

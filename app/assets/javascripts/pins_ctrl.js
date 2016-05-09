@@ -48,10 +48,19 @@
               icon: image
             });
             marker.addListener('click', function() {
-              if (pin.text !== false) {
-                var text = pin.text;
+              var text = "";
+              if (!pin.text) {
+                text = "";
+              } else {
+                text = pin.text;
               }
-              infowindow.setContent(pin.name + '<br />' + pin.address + '<br />' + '<a href=' + pin.url + '>Link to website</a>' + '<br />' + text);
+              var urlString = "";
+              if (!pin.url) {
+                urlString = "";
+              } else {
+                urlString = '<a href=' + pin.url + '>Link to website</a>';
+              }
+              infowindow.setContent(pin.name + '<br />' + pin.address + '<br />' + urlString + '<br />' + text);
               infowindow.open(pinMap, marker);
             });
           }

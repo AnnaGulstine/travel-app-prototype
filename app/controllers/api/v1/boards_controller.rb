@@ -10,7 +10,16 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def api_board_ids
-    @boards = current_user.boards
-    render json: @boards
+    puts '*' * 50
+    puts current_user
+    puts '*' * 50
+    if current_user
+      @boards = current_user.boards
+      render json: @boards
+    else
+      # render json: {message: 'not signed in'}
+      @boards = User.first.boards
+      render json: @boards
+    end
   end
 end
