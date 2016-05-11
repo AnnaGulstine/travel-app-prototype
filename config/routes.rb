@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get '/home' => 'pages#home'
+  get '/' => 'pages#home'
   
-  get '/' => 'boards#index'
+  # get '/' => 'boards#index'
   get '/boards' => 'boards#index'
   get 'boards/new' => 'boards#new'
   post 'boards' => 'boards#create'

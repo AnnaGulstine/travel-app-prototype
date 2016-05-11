@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
     if current_user
       @boards = current_user.boards
     else
-      redirect_to "/users/sign_in"
+      redirect_to "/"
     end
   end
 
