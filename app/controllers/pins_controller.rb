@@ -11,23 +11,26 @@ class PinsController < ApplicationController
   end
 
   def new
-    @boards = Board.where("user_id = ?", current_user.id.to_i)
+    @boards = Board.where("user_id = ?", current_user.id)
   end
 
   def create
-    @pin = Pin.create(
-      name: params[:name],    
+    coordinates = Geocoder.coordinates(params[:name])    
+    @pin = Pin.create(   
       url: params[:url],
       text: params[:text],
-      address: params[:address],
-      board_id: params[:board_id] || session[:board_id] 
+      name: params[:name],
+      board_id: params[:board_id],
+      latitude: coordinates[0],
+      longitude: coordinates[1]
     )    
     redirect_to "/boards"
   end
 
   def edit
     board_id = params[:id]
-    @pin = Pin.find_by(board_id: board_id)
+    # @pin = Pin.find_by(board_id: board_id)
+    @pin = Pin.find_by(id: params[:id])
   end
 
   def update
@@ -36,7 +39,6 @@ class PinsController < ApplicationController
     @pin.update(
       url: params[:url],
       text: params[:text],
-      address: params[:address],
       name: params[:name]
     )
     flash[:success] = "Pin successfully updated!"

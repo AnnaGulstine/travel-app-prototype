@@ -3,10 +3,17 @@
     <%= form_tag '/boards', method: :post do %>
     <div class="form-group">
       <%= label_tag :name %>
-      <%= text_field_tag :address %>
-    </div>   
+      <%= text_field_tag :address %>    
+    </div>      
     <div>
       <%= submit_tag 'Create Trip', class: "btn btn-default" %>
     </div>
   <% end %>
+
+  <div ng-app="app" ng-controller="boardsController">
+      <div>Google Places Autocomplte integration in Angular</div>
+      <div>To Test, start typing the name of any Indian city</div>
+      <div>selection is: {{chosenPlace}}</div>
+      <div><input ng-model="chosenPlace" googleplace/></div>
+  </div>
 </div>

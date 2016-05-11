@@ -64,5 +64,35 @@ h1, h2, h3, h4, h5, h6, p, li {
   font-size: 16px;
   padding: 12px 45px;
   line-height: 1.42857143;
+}
 
+.boardsDropdown {
+  z-index: 99;
+  position: absolute;
+  float: right;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  padding: 8px 37px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+       -o-border-radius: 0;
+          border-radius: 0;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  display: inline-block;
+  margin: 15px 0;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  box-shadow: 1px 1px 1px gray;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  border-radius: 6px;
+  width: 200px;
+  height: 45px;
 }

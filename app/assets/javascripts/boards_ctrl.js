@@ -3,6 +3,8 @@
 
 (function() {
   angular.module("app").controller("boardsController", function($scope, $http) {
+
+    $scope.gPlace;
   
     var map;
 
@@ -73,6 +75,7 @@
 
       // }          
     }
+
     window.$scope = $scope;
   });
 })();

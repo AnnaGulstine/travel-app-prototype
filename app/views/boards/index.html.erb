@@ -4,8 +4,23 @@
       <h4><a href="/boards/{{ board.id }}">{{ board.address }}</a>
       <button ng-click="newMap(board)">{{ board.address }}</button></h4>       
     </div>  --> 
-    <div class="mapContainer">
-      <div id="map"></div>      
+
+    <div class="mapContainer">  
+<!--       <div class="btn-group boardsDropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Trip <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="board in boards"><a href="localhost:3000/boards/{{ board.id }}">{{ board.address }}</a></li>
+        </ul>
+      </div>   -->
+
+      <select onchange="window.location = this.value" class="boardsDropdown">
+        <option selected="selected">Select Trip</option>
+        <option ng-repeat="board in boards" value="http://localhost:3000/boards/{{ board.id }}">{{ board.address }}</option>
+      </select>
+      <div id="map">
+      </div>      
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>" async defer></script>   
     </div>
   <!--   </div> -->
@@ -19,15 +34,7 @@
       <div class="row">
     
         <div class="col-sm-12">
-    
-<!--           <ul class="social-text-links font-alt text-center m-b-20">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Google plus</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Linkedin</a></li>
-            <li><a href="#">Dribbble</a></li>
-          </ul> -->
-    
+
         </div>
     
       </div>
@@ -37,7 +44,6 @@
         <div class="col-sm-12">
     
           <p class="copyright text-center m-b-0">© 2015 <a href="#">Vortex</a>, All Rights Reserved.</p>
-    
         </div>
     
       </div>

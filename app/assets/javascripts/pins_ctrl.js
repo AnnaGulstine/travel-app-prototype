@@ -16,37 +16,23 @@
       });
     };
 
-    function setupMap() {
-      var geocoder = new google.maps.Geocoder();
-
-      geocoder.geocode({
-        'address': $scope.boardAddress
-      }, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-          var mapOptions = {
-            zoom: 13,
-            center: results[0].geometry.location,
-            styles: styles,
-            mapTypeId: 'roadmap'
-          };
-          pinMap = new google.maps.Map(document.getElementById('pinMap'), mapOptions);
-        }
-      });
-
+    function setPins() {
       var infowindow = new google.maps.InfoWindow({
         content: 'Hello'
       });
-
       $scope.pins.forEach(function(pin) {
-        var address = pin.address;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            pinMap.setCenter(results[0].geometry.location);
+        var myLatLng = new google.maps.LatLng(pin.latitude, pin.longitude);
+        // geocoder.geocode({'address': pin.name}, function(results, status) {
+          // if (status === google.maps.GeocoderStatus.OK) {
+            // pinMap.setCenter(results[0].geometry.location);
+            // pinMap.setCenter(myLatLng);
             var marker = new google.maps.Marker({
               map: pinMap,
-              position: results[0].geometry.location,
+              // position: results[0].geometry.location,
+              position: myLatLng,
               icon: image
             });
+
             marker.addListener('click', function() {
               var text = "";
               if (!pin.text) {
@@ -60,12 +46,39 @@
               } else {
                 urlString = '<a href=' + pin.url + '>Link to website</a>';
               }
-              infowindow.setContent(pin.name + '<br />' + pin.address + '<br />' + urlString + '<br />' + text);
+              infowindow.setContent(pin.name + '<br />' + pin.name + '<br />' + urlString + '<br />' + text);
               infowindow.open(pinMap, marker);
             });
-          }
-        });
+          // }
+        // });
       });
+    }
+
+    function setupMap() {
+
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode({
+        'address': $scope.boardAddress
+      }, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          var mapOptions = {
+            zoom: 13,
+            center: results[0].geometry.location,
+            styles: styles,
+            mapTypeId: 'roadmap'
+          };
+          pinMap = new google.maps.Map(document.getElementById('pinMap'), mapOptions);
+          setPins();
+        }
+      });
+
+
+      // var latlngbounds = new google.maps.LatLngBounds();
+      //   for (var i = 0; i < latlng.length; i++) {
+      //     latlngbounds.extend(latlng[i]);
+      //   }
+      // pinMap.fitBounds(latlngbounds);
       
     }
 

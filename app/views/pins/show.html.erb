@@ -1,9 +1,6 @@
 <div class="container marginTop">
   <% if @pin.name %>
-    <h3>Pin name: </h3><h4><%= @pin.name %></h4>
-  <% end %>
-  <% if @pin.address %>
-    <h3>Address: </h3><h4><%= @pin.address %></h4>
+    <h3>Name: </h3><h4><%= @pin.name %></h4>
   <% end %>
   <% if @pin.url %>
     <h3><a href="<%= @pin.url %>">Link to website</a></h3>

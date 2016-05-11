@@ -10,6 +10,7 @@ class Api::V1::PinsController < ApplicationController
       board_id: params[:board_id],
       url: params[:url]
     )
+    @pin.save
     render 'show.json.jbuilder'    
     # render json: {
     #   text: params[:text],
