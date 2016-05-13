@@ -1,18 +1,20 @@
-<h2>Sign up</h2>
+<div class="container marginTop centered">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <h2>Sign Up</h2>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <form class="new_user" id="new_user" action="/users" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="field">
+        <label for="user_email">Email</label>
+        <input type="email" value="" name="user[email]" id="user_email">
+      </div>
+      <div class="field">
+        <label for="user_password">Password</label>
+        <input type="password" name="user[password]" id="user_password">
+      </div>
+      <div class="actions">
+      <input type="submit" name="commit" value="Sign Up">
+      </div>
+    </form>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

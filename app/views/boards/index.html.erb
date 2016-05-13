@@ -1,27 +1,12 @@
 <div ng-app="app">
-  <div ng-controller="boardsController" ng-init="setup()"> 
-<!--     <div ng-repeat="board in boards">
-      <h4><a href="/boards/{{ board.id }}">{{ board.address }}</a>
-      <button ng-click="newMap(board)">{{ board.address }}</button></h4>       
-    </div>  --> 
-
+  <div ng-controller="boardsController" ng-init="setup()">
     <div class="mapContainer">  
-<!--       <div class="btn-group boardsDropdown">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Trip <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li ng-repeat="board in boards"><a href="localhost:3000/boards/{{ board.id }}">{{ board.address }}</a></li>
-        </ul>
-      </div>   -->
-
       <select onchange="window.location = this.value" class="boardsDropdown">
         <option selected="selected">Select Trip</option>
-        <option ng-repeat="board in boards" value="http://localhost:3000/boards/{{ board.id }}">{{ board.address }}</option>
+        <option ng-repeat="board in boards" value="http://localhost:3000/boards/{{ board.id }}">{{ board.name }}</option>
       </select>
       <div id="map">
       </div>      
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>" async defer></script>   
     </div>
   <!--   </div> -->
   </div>

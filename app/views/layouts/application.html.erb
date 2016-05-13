@@ -6,10 +6,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-  <title>Anna's Travel App</title>
+  <title>Oyster</title>
   
   <!-- Favicons -->
-  <link rel="shortcut icon" href="/assets/images/oysterFavicon.png">
+  <link rel="shortcut icon" href="/assets/oysterMarker.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png">
@@ -29,7 +29,7 @@
   
   <!-- Template core CSS -->
   <link href="/assets/css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>&libraries=places'></script>    
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
   <%= csrf_meta_tags %>
@@ -99,7 +99,10 @@
         <div class="navbar-header">
           <!-- YOU LOGO HERE -->
           <a class="navbar-brand" href='/boards'>
-            <img src="/assets/oysterLogo.png" width="90" alt="">
+          <div class="logo img-responsive">
+            <img src="/assets/oysterLogo.png"  class="logo-link large-logo" width="90" alt="">
+            <img src="/assets/oysterLogo.png"  class="logo-link scrolling-logo" width="70" alt="">
+          </div>
           </a>
         </div>
       

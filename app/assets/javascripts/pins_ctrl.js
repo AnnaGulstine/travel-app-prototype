@@ -11,7 +11,7 @@
     $scope.setup = function(boardId) {
       $http.get('/api/v1/boards/' + boardId + '.json').then(function(response) {
         $scope.pins = (response.data).pins;
-        $scope.boardAddress = (response.data).address;
+        $scope.boardAddress = (response.data).name;
         setupMap($scope.pins);
       });
     };
@@ -22,13 +22,8 @@
       });
       $scope.pins.forEach(function(pin) {
         var myLatLng = new google.maps.LatLng(pin.latitude, pin.longitude);
-        // geocoder.geocode({'address': pin.name}, function(results, status) {
-          // if (status === google.maps.GeocoderStatus.OK) {
-            // pinMap.setCenter(results[0].geometry.location);
-            // pinMap.setCenter(myLatLng);
             var marker = new google.maps.Marker({
               map: pinMap,
-              // position: results[0].geometry.location,
               position: myLatLng,
               icon: image
             });
@@ -72,14 +67,6 @@
           setPins();
         }
       });
-
-
-      // var latlngbounds = new google.maps.LatLngBounds();
-      //   for (var i = 0; i < latlng.length; i++) {
-      //     latlngbounds.extend(latlng[i]);
-      //   }
-      // pinMap.fitBounds(latlngbounds);
-      
     }
 
   });

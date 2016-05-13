@@ -96,3 +96,13 @@ h1, h2, h3, h4, h5, h6, p, li {
   width: 200px;
   height: 45px;
 }
+
+.large-logo {display:block;}
+
+.scrolling-logo {display:none;}
+
+.scrolling .large-logo {display:none;}
+
+.scrolling .scrolling-logo {
+  display:block;
+}

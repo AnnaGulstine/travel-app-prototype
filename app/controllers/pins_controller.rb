@@ -12,6 +12,7 @@ class PinsController < ApplicationController
 
   def new
     @boards = Board.where("user_id = ?", current_user.id)
+    @categories = Category.all
   end
 
   def create
@@ -21,15 +22,15 @@ class PinsController < ApplicationController
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
+      category_id: params[:category_id],
       latitude: coordinates[0],
       longitude: coordinates[1]
-    )    
-    redirect_to "/boards"
+    )
+    redirect_to "/boards/#{@pin.board_id}"
   end
 
   def edit
     board_id = params[:id]
-    # @pin = Pin.find_by(board_id: board_id)
     @pin = Pin.find_by(id: params[:id])
   end
 

@@ -4,16 +4,10 @@
     <%= form_tag '/boards', method: :post do %>
     <div class="form-group">
       <%= label_tag :name %>
-      <%= text_field_tag :address, data: { :'ng-model' => 'chosenPlace' } %>
-      <!-- <input ng-model="chosenPlace" googleplace />       -->
+      <input ng-model="chosenPlace" name="name" type="text" googleplace places-type="(cities)" />      
     </div>      
     <div>
       <%= submit_tag 'Create Trip', class: "btn btn-default" %>
     </div>
   </div>
   <% end %>
-
-<!--     <div>selection is: {{ chosenPlace }}</div>
-    <div><input ng-model="chosenPlace" googleplace/></div>
-  </div>
-</div> -->

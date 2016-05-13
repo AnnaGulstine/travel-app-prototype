@@ -1,4 +1,4 @@
-class Api::V1::PinsController < ApplicationController
+class Api::V1::PinsController < Api::ApiController
   def index
     @pins = Pin.all
     render 'index.json.jbuilder'

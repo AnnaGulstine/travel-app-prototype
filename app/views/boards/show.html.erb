@@ -1,24 +1,23 @@
 <div class="container-fluid mapContainer">
   <div ng-app="app">
     <div ng-controller="pinsController" ng-init="setup(<%= @board.id %>)">
-      <h2 class="boardName"><%= @board.address.upcase %></h2>
+      <h2 class="boardName"><%= @board.name.upcase %></h2>
       <div class="row">
         <div class="col-sm-2" id="pinSidebar">
-          <div ng-repeat="pin in pins">
-            <h4 id="pinName">{{ pin.name }}</h4>
+          <div ng-repeat="pin in pins" ng-if="pin.category">
+            <div ng-if="pin.name">
+            <h4>{{ pin.name }}</h4>
+            </div>
             <div ng-if="pin.url">
               <h4><a href="{{ pin.url }}">Visit website</a></h4>  
             </div>        
             <h5>{{ pin.text }}</h5>
-            <h5 ng-if="!pin.name">{{ pin.address }}</h5>
             <%= link_to "Edit this pin", "/pins/{{ pin.id }}/edit", class: "btn btn-default" %>
             <hr>            
           </div>
         </div>
         <div class="col-sm-10" id="pinMap"></div>
       </div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>" async defer></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>&libraries=places">     
     </div>
   </div>
 

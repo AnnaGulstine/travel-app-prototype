@@ -2,10 +2,12 @@
   <h1>Edit Pin</h1>
   <%= form_tag "/pins/#{@pin.id}", method: :patch do %>
 
-    <div>
+  <div ng-app="app" ng-controller="pinsController">   
+    <div class="form-group">
       <%= label_tag :name %>
-      <%= text_field_tag :name, @pin.name %>
-    </div> 
+      <input ng-model="chosenPlace" name="name" type="text" googleplace places-type="establishment" class="inputText" />      
+    </div>
+  </div>   
     <div>
       <%= label_tag :url %>
       <%= text_field_tag :url, @pin.url %>

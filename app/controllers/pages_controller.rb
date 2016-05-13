@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    if current_user
+    if user_signed_in?
       redirect_to "/boards"
     else
       render "home.html.erb"

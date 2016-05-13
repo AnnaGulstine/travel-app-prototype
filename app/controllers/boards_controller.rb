@@ -29,7 +29,7 @@ class BoardsController < ApplicationController
     # coordinates = Geocoder.coordinates(params[:address])
     # console.log(coordinates)
     @board = Board.create(
-      address: params[:address],
+      name: params[:name],
       user_id: current_user.id.to_i
       # latitude: coordinates[0],
       # longitude: coordinates[1]
