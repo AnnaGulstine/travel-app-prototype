@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.blueBackground {
-  background: url("/assets/images/blueBackground.png");
+.modal-dialog {
+  margin-top: 160px;
+}
+
+.modalInput {
+  width: 200px;
+  height: 40px;
+}
+
+#modalButton {
+  margin-top: 20px;
 }
