@@ -5,4 +5,6 @@ json.array! @pins.each do |pin|
   json.boardId pin.board_id
   json.latitude pin.latitude
   json.longitude pin.longitude
+  json.category pin.category
+  json.categoryName pin.category.name
 end
