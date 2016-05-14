@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-  <title>Oyster</title>
+  <title>oyster</title>
   
   <!-- Favicons -->
   <link rel="shortcut icon" href="/assets/oysterMarker.png">
@@ -26,14 +26,11 @@
   <link href="/assets/css/superslides.css" rel="stylesheet">
   <link href="/assets/css/vertical.css" rel="stylesheet">
   <link href="/assets/css/animate.css" rel="stylesheet">
-  
-  <!-- Template core CSS -->
   <link href="/assets/css/style.css" rel="stylesheet">
   <script src='https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>&libraries=places'></script>    
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
   <%= csrf_meta_tags %>
-
 </head>
 <body>
   <!-- PRELOADER -->
@@ -41,101 +38,130 @@
     <div class="loader">Loading...</div>
   </div> -->
   <!-- /PRELOADER -->
-
   <!-- OVERLAY MENU -->
   <div id="overlay-menu" class="overlay-menu">
-
     <a href="#" id="overlay-menu-hide" class="navigation-hide"><i class="ion-close-round"></i></a>
-    
     <div class="overlay-menu-inner">
       <nav class="overlay-menu-nav">
-    
         <ul id="nav">
-    
           <li class="slidedown">
             <a href="#">Home</a>
           </li>
-          <li><a href="/boards/new" title="newTrip">Add New Trip</a></li> 
-          <li><a href="/pins/new" title="newPin">Add New Pin</a></li> 
-          <% if current_user %>     
-              <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
-            <% else %>        
-              <li><a href="/users/sign_up">Sign Up</a></li>
-              <li><a href="/users/sign_in">Log In</a></li>
-            <% end %>
+          <li>
+            <a href="/boards/new" title="newTrip">Add New Trip</a>
+          </li> 
+          <li>
+            <a href="/pins/new" title="newPin">Add New Pin</a>
+          </li> 
+        <% if current_user %>     
+          <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
+        <% else %>        
+          <li><a href="/users/sign_up">Sign Up</a></li>
+          <li><a href="/users/sign_in">Log In</a></li>
+        <% end %>
         </ul>
-    
       </nav>
     </div>
   </div>
-    
     <div class="overlay-navigation-footer">
-    
       <div class="container">
-    
         <div class="row">
-    
           <div class="col-sm-12 text-center">
-            <!-- <p class="copyright font-alt m-b-0">© 2015 Vortex, All Rights Reserved.</p> -->
+            <p class="copyright font-alt m-b-0">© 2016 Anna Gulstine</p>
           </div>
-    
         </div>
-    
       </div>
-    
     </div>
-
   </div>
-  <!-- /OVERLAY MENU -->
-
+  <!-- /OVERLAY MENU AND OVERLAY NAVIGATION FOOTER -->
   <!-- WRAPPER -->
   <div class="wrapper">
-
+    <div class="modal fade" tabindex="-1" role="dialog" id="logInModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Log In</h4>
+          </div>
+          <div class="modal-body">
+            <nav role="navigation">
+              <ul class="nav nav-tabs">
+                <li role="presentation" class="active">
+                  <a href="#sign-in" data-toggle="tab">Sign In</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="sign-in">
+                  <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+                    <input name="utf8" type="hidden" value="">
+                    <input type="hidden" name="authenticity_token" value="QqprIBbAFMzDxCC2hyxozzRh/R/ezik/5gOMjQQUJmUeepZDgNLOJ772rRwOB5JN87XQHTsmwWzUNA6gf8K+sA==">
+                    <div class="field">
+                      <label for="user_email">Email</label><br />
+                      <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
+                    </div>
+                    <div class="field">
+                      <label for="user_password">Password</label><br>
+                      <input autocomplete="off" type="password" name="user[password]" id="user_password">
+                    </div>
+                    <div class="actions">
+                      <input type="submit" name="commit" value="Log in">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- NAVIGATION -->
-    <nav class="navbar navbar-custom navbar-transparent navbar-light navbar-fixed-top">
-
-      <div class="container">
-      
-        <div class="navbar-header">
-          <!-- YOU LOGO HERE -->
-          <a class="navbar-brand" href='/boards'>
+  <nav class="navbar navbar-custom navbar-transparent navbar-light navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- LOGO -->
+        <a class="navbar-brand" href='/boards'>
           <div class="logo img-responsive">
             <img src="/assets/oysterLogo.png"  class="logo-link large-logo" width="90" alt="">
             <img src="/assets/oysterLogo.png"  class="logo-link scrolling-logo" width="70" alt="">
           </div>
-          </a>
-        </div>
-      
-        <!-- ICONS NAVBAR -->
-        <ul id="icons-navbar" class="nav navbar-nav navbar-right">
-          <li>
-            <a href="#" id="toggle-menu" class="show-overlay" title="Menu">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-          </li>
-        </ul>
-        <!-- /ICONS NAVBAR -->
-      
-        <ul class="extra-navbar nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li><a href="/boards" title="Home">Home</a></li>               
-            <li><a href="/boards/new" title="newTrip">Add New Trip</a></li> 
-            <li><a href="/pins/new" title="newPin">Add New Pin</a></li> 
-            <!-- <button ng-click="zoomOut()">Zoom out</button></h4>                          -->
-            <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
-          <% else %>              
-            <li><a href="/users/sign_up">Sign Up</a></li>
-            <li><a href="/users/sign_in">Log In</a></li>
-          <% end %>
-        </ul>
-
+        </a>
       </div>
-
-    </nav>
+      <!-- ICONS NAVBAR -->
+      <ul id="icons-navbar" class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" id="toggle-menu" class="show-overlay" title="Menu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+        </li>
+      </ul>
+      <!-- /ICONS NAVBAR -->
+      <ul class="extra-navbar nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li>
+            <a href="/boards" title="Home">Home</a>
+          </li>               
+          <li>
+            <a href="/boards/new" title="newTrip">Add New Trip</a>
+          </li> 
+          <li>
+            <a href="/pins/new" title="newPin">Add New Pin</a>
+          </li> 
+          <li>
+            <%= link_to "Log Out", "/users/sign_out", method: :delete %>
+          </li> 
+        <% else %>   
+        <!-- LOG-IN MODAL -->                     
+          <li>
+            <a data-toggle="modal" href="#logInModal">Log In</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
     <!-- /NAVIGATION -->
-
   <%= yield %>
+  </div>
 </body>
 </html>

@@ -26,9 +26,10 @@
 
     function setupMap(boards) {
       var mapOptions = {
-        center: new google.maps.LatLng(41.84, -87.68),
-        zoom: 2,
-        maxZoom: 3,
+        // center: new google.maps.LatLng(41.84, -87.68),
+        center: new google.maps.LatLng(0, 0),
+        zoom: 3,
+        // maxZoom: 3,
         mapTypeId: 'roadmap',
         scrollwheel: false,
         styles: styles,

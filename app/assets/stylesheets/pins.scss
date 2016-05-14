@@ -21,3 +21,21 @@
 .inputText {
   width: 250px;
 }
+
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  padding: 8px 37px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+       -o-border-radius: 0;
+          border-radius: 0;
+}
+
+.btn.focus, .btn:focus,
+.btn.active.focus, .btn.active:focus,
+.btn:active.focus, .btn:active:focus {
+  background: none;
+  outline: 0;
+}

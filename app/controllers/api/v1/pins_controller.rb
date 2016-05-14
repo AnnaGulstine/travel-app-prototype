@@ -7,6 +7,7 @@ class Api::V1::PinsController < Api::ApiController
   def create
     @pin = Pin.new(
       text: params[:text],
+      name: params[:name],
       board_id: params[:board_id],
       url: params[:url]
     )

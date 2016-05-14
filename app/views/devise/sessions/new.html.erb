@@ -28,3 +28,28 @@
   <%= render "devise/shared/links" %>
 
 </div>
+
+<div class="container marginTop centered">
+
+  <div class="row">
+    <h2>Log In</h2>
+  </div>
+
+  <div class="row">
+    <form class="new_user" id="new_user" action="/users" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="field" >
+        <!-- <label for="user_email">Email</label> -->
+        <input type="email" class="largeInput" value="Email Address" name="user[email]" id="user_email" placeholder="Email address">
+      </div>
+      <div class="field">
+        <!-- <label for="user_password">Password</label> -->
+        <input class="largeInput" value="Password" name="user[password]" id="user_password" placeholder="Password">
+      </div>
+      <div class="actions">
+      <input type="submit" name="commit" value="Sign Up">
+      </div>
+    </form>
+  </div>
+
+</div>

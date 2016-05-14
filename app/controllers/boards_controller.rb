@@ -10,6 +10,7 @@ class BoardsController < ApplicationController
   def show
     if current_user
       @board = Board.find_by(id: params[:id])
+      @categories = Category.all
       session[:board_id] = @board.id
       if @board
         @pins = @board.pins
