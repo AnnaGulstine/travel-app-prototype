@@ -3,8 +3,9 @@ class PinsController < ApplicationController
 
   def index
     board_id = Board.find_by(id: params[:id])
-    @pins = Pin.find_by(id: board_id)
-    @categories = Category.all    
+    @pins = Pin.find_by(id: board_id) || Pin.all
+    @categories = Category.all
+    # @pins = Pin.find_by(name: params[:name])
   end
 
   def show

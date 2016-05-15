@@ -19,17 +19,10 @@
       });
     };
 
-    // $scope.zoomOut = function() {
-    //   map.setCenter({lat: 41.84, lng: -87.68});  
-    //   map.setZoom(2);       
-    // }
-
     function setupMap(boards) {
       var mapOptions = {
-        // center: new google.maps.LatLng(41.84, -87.68),
         center: new google.maps.LatLng(0, 0),
         zoom: 3,
-        // maxZoom: 3,
         mapTypeId: 'roadmap',
         scrollwheel: false,
         styles: styles,
@@ -51,7 +44,6 @@
 
         geocoder.geocode({'address': name}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            // map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
               map: map,
               position: results[0].geometry.location,
@@ -67,7 +59,6 @@
         })
       });
     }
-
     window.$scope = $scope;
   });
 })();

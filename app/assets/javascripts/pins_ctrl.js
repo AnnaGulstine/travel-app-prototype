@@ -22,7 +22,9 @@
 
     $scope.selectedCategory = function(pin) {
       return pin.selected === "selected";
-    }
+    };
+
+    var bounds = new google.maps.LatLngBounds();
 
     function setPins() {
       var infowindow = new google.maps.InfoWindow({
@@ -30,37 +32,36 @@
       });
       $scope.pins.forEach(function(pin) {
         var myLatLng = new google.maps.LatLng(pin.latitude, pin.longitude);
-            var marker = new google.maps.Marker({
-              map: pinMap,
-              position: myLatLng,
-              icon: image
-            });
+        var marker = new google.maps.Marker({
+          map: pinMap,
+          position: myLatLng,
+          icon: image
+        });
 
-            marker.addListener('click', function() {
-              var text = "";
-              if (!pin.text) {
-                text = "";
-              } else {
-                text = pin.text;
-              }
-              var urlString = "";
-              if (!pin.url) {
-                urlString = "";
-              } else {
-                urlString = '<a href=' + pin.url + '>Link to website</a>';
-              }
-              infowindow.setContent(pin.name + '<br />' + pin.name + '<br />' + urlString + '<br />' + text);
-              infowindow.open(pinMap, marker);
-            });
-          // }
-        // });
+        bounds.extend(marker.getPosition());
+        pinMap.fitBounds(bounds);
+
+        marker.addListener('click', function() {
+          var text = "";
+          if (!pin.text) {
+            text = "";
+          } else {
+            text = pin.text;
+          }
+          var urlString = "";
+          if (!pin.url) {
+            urlString = "";
+          } else {
+            urlString = '<a href=' + pin.url + '>Link to website</a>';
+          }
+          infowindow.setContent(pin.name + '<br />' + pin.name + '<br />' + urlString + '<br />' + text);
+          infowindow.open(pinMap, marker);
+        });
       });
     }
 
     function setupMap() {
-
       var geocoder = new google.maps.Geocoder();
-
       geocoder.geocode({
         'address': $scope.boardAddress
       }, function(results, status) {
@@ -75,9 +76,9 @@
           pinMap = new google.maps.Map(document.getElementById('pinMap'), mapOptions);
           setPins();
 
-          pinMap.addListener('click', function(url) {
-          window.location.href = pinMap.url;
-      }); 
+          pinMap.addListener('click', function() {
+            window.location.href = pinMap.url;
+          });
         }
       });
     }
