@@ -14,3 +14,39 @@
 #modalButton {
   margin-top: 20px;
 }
+
+.marginBottom {
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#hero, .module-hero .module-video .module-full-height .bg-light-30 {
+  background: url( '/assets/oceanBackground.png' ) no-repeat center center !important;
+  background-size: cover;
+  opacity: 1;
+}
+
+.addNewField {
+  width: 500px;
+  margin: 0 auto;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;  
+  font-family: "Dosis", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;  
+  opacity: 1 !important;
+}
+
+.newTitle {
+  color: #fff;
+}
