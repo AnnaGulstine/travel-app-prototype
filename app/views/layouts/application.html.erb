@@ -46,6 +46,7 @@
     <div class="overlay-menu-inner">
       <nav class="overlay-menu-nav">
         <ul id="nav">
+          <% if current_user %>
           <li class="slidedown">
             <a href="#">Home</a>
           </li>
@@ -54,12 +55,10 @@
           </li> 
           <li>
             <a href="/pins/new" title="newPin">Add New Pin</a>
-          </li> 
-        <% if current_user %>     
+          </li>     
           <li><%= link_to "Log Out", "/users/sign_out", method: :delete %></li> 
         <% else %>        
-          <li><a href="/users/sign_up">Sign Up</a></li>
-          <li><a href="/users/sign_in">Log In</a></li>
+          <li><a href="/">Sign Up</a></li>
         <% end %>
         </ul>
       </nav>

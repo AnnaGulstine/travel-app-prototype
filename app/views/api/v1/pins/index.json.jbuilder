@@ -6,4 +6,5 @@ json.array! @pins.each do |pin|
   json.latitude pin.latitude
   json.longitude pin.longitude
   json.category_id pin.category_id
+  json.category pin.category.name
 end

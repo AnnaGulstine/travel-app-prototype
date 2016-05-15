@@ -9,15 +9,11 @@ class Api::V1::PinsController < Api::ApiController
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
+      category_id: params[:category_id],
       url: params[:url]
     )
     @pin.save
     render 'show.json.jbuilder'    
-    # render json: {
-    #   text: params[:text],
-    #   url: params[:url],
-    #   board_id: params[:board_id]
-    # }
   end
 
   def show
@@ -29,8 +25,6 @@ class Api::V1::PinsController < Api::ApiController
     puts '*' * 50
     puts current_user
     puts '*' * 50
-    # render json: {message: 'not signed in'}
-    # @pins = User.first.pins
     @pins = Pin.all
     render json: @pins
   end

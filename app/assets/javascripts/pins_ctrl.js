@@ -6,11 +6,15 @@
   
     var styles = [{"stylers":[{"hue":"#007fff"},{"saturation":40}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}];
 
-    var image = "/assets/cameraIcon.png";
+    // var image = "/assets/cameraIcon.png";
     // var image = "/assets/hotelIcon.png";
     // var image = "/assets/restaurantIcon.png";
-    // var image = "/assets/oysterMarker.png";
 
+    var icons = {
+      "attractions": "/assets/cameraIcon.png",
+      "hotels": "/assets/hotelIcon.png",
+      "restaurants": "/assets/restaurantIcon.png"
+    };
 
     $scope.setup = function(boardId) {
       $http.get('/api/v1/boards/' + boardId + '.json').then(function(response) {
@@ -18,10 +22,11 @@
         $scope.boardAddress = (response.data).name;
         setupMap($scope.pins);
       });
+      $scope.selectedCategory = undefined;
     };
 
-    $scope.selectedCategory = function(pin) {
-      return pin.selected === "selected";
+    $scope.selectCategory = function(inputObject) {
+      $scope.selectedCategory = inputObject;
     };
 
     var bounds = new google.maps.LatLngBounds();
@@ -35,7 +40,7 @@
         var marker = new google.maps.Marker({
           map: pinMap,
           position: myLatLng,
-          icon: image
+          icon: icons[pin.category.name]
         });
 
         bounds.extend(marker.getPosition());
