@@ -9,7 +9,7 @@ class Api::V1::PinsController < Api::ApiController
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
-      category_id: params[:category_id],
+      category: params[:category],
       url: params[:url]
     )
     @pin.save

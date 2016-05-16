@@ -6,10 +6,6 @@
   
     var styles = [{"stylers":[{"hue":"#007fff"},{"saturation":40}]},{"featureType":"water","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"visibility":"off"}]}];
 
-    // var image = "/assets/cameraIcon.png";
-    // var image = "/assets/hotelIcon.png";
-    // var image = "/assets/restaurantIcon.png";
-
     var icons = {
       "attractions": "/assets/cameraIcon.png",
       "hotels": "/assets/hotelIcon.png",
@@ -40,7 +36,7 @@
         var marker = new google.maps.Marker({
           map: pinMap,
           position: myLatLng,
-          icon: icons[pin.category.name]
+          icon: icons[pin.category]
         });
 
         bounds.extend(marker.getPosition());

@@ -18,24 +18,10 @@
         setupMap($scope.boards);
       });
     };
+    
+    var geocoder = new google.maps.Geocoder();
 
-    function setupMap(boards) {
-      var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 3,
-        mapTypeId: 'roadmap',
-        scrollwheel: false,
-        styles: styles,
-        disableDefaultUI:true,
-        url: "http://localhost:3000/boards/new"    
-      };
-      map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-      map.addListener('click', function(url) {
-        window.location.href = map.url;
-      });      
-
-      var geocoder = new google.maps.Geocoder();
+    $scope.setMarkers = function() {
 
       var bounds = new google.maps.LatLngBounds();
 
@@ -58,6 +44,24 @@
           }
         })
       });
+    };
+
+    function setupMap(boards) {
+      var mapOptions = {
+        // center: new google.maps.LatLng(0, 0),
+        // zoom: 3,
+        mapTypeId: 'roadmap',
+        scrollwheel: false,
+        styles: styles,
+        disableDefaultUI:true,
+        url: "http://localhost:3000/boards/new"    
+      };
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+      map.addListener('click', function(url) {
+        window.location.href = map.url;
+      });      
+      $scope.setMarkers();
     }
     window.$scope = $scope;
   });

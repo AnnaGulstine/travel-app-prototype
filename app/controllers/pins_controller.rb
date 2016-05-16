@@ -14,22 +14,26 @@ class PinsController < ApplicationController
 
   def new
     @boards = Board.where("user_id = ?", current_user.id)
-    @categories = Category.all
   end
 
   def create
     board = Board.find_by(id: params[:board_id])
     board_name = board.name
-    coordinates = Geocoder.coordinates(params[:name] + " " + board_name)   
+    coordinates = Geocoder.coordinates(params[:name])
+    unless params[:url].empty?
+      page = MetaInspector.new(params[:url])
+      image = page.images.best
+    end
     @pin = Pin.create(   
       url: params[:url],
       text: params[:text],
-      name: params[:name] + board_name,
+      name: params[:name],
       board_id: params[:board_id],
-      category_id: params[:category_id],
+      category: params[:category].downcase,
       latitude: coordinates[0],
-      longitude: coordinates[1]
-    )   
+      longitude: coordinates[1],
+      image: image
+    )
     redirect_to "/boards/#{@pin.board_id}"
   end
 

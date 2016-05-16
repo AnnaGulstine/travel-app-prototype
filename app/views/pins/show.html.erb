@@ -1,14 +1,21 @@
 <div class="container marginTop">
-  <% if @pin.name %>
-    <h3>Name: </h3><h4><%= @pin.name %></h4>
-  <% end %>
-  <% if @pin.url %>
-    <h3><a href="<%= @pin.url %>">Link to website</a></h3>
-  <% end %>
-  <% if @pin.text %>
-    <h3>Your notes: </h3><h5><%= @pin.text %></h5>
-  <%= link_to 'Edit This Pin', "/pins/#{@pin.id}/edit", class: "btn btn-default" %>
-  <% end %>
-  <h3>Category: </h3><h5><%= @pin.category.name %></h5>
-  <%= link_to 'Edit This Pin', "/pins/#{@pin.id}/edit", class: "btn btn-default" %> 
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3">
+      <% if @pin.name %>
+        <h3>Name: </h3><h4><%= @pin.name %></h4>
+      <% end %>
+      <% if @pin.url %>
+        <h3><a href="<%= @pin.url %>">Link to website</a></h3>
+      <% end %>
+      <% if @pin.text %>
+        <h3>Your notes: </h3><h5><%= @pin.text %></h5>
+      <% end %>
+      <h3>Category: </h3><h5><%= @pin.category %></h5>
+    </div>
+    <div class="col-sm-4">
+      <img src="<%= @pin.image %>" class="img-responsive" />
+      <%= link_to 'Edit This Pin', "/pins/#{@pin.id}/edit", class: "btn btn-default smallMarginTop" %>      
+    </div>
+  </div>
 </div>
