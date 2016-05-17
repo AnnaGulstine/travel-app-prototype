@@ -6,10 +6,10 @@
         <h5 class="mh-line-size-3 font-alt marginBottom newTitle">Add a New Pin</h5>
         <%= form_tag '/pins', method: :post do %>  
         <div class="form-group">
-          <%= text_field_tag :url, "Website", :class => "mh-line-size-4 addNewField" %>
+          <%= text_field_tag :url, "", :class => "mh-line-size-4 addNewField", :placeholder => "URL" %>
         </div>
         <div class="form-group">
-          <%= text_field_tag :text, "Add notes", :class => "mh-line-size-4 addNewField" %>  
+          <%= text_field_tag :text, "", :class => "mh-line-size-4 addNewField", placeholder: "Add Notes" %>  
         </div>
         <div ng-app="app" ng-controller="pinsController">   
           <div class="form-group">
@@ -17,10 +17,10 @@
           </div>
         </div>         
         <div class="form-group">
-          <%= select_tag :board_id, options_from_collection_for_select(@boards, "id", :name), class: "form-control dropdown", :prompt => "Choose a trip to add this pin to" %>    
+          <%= select_tag :board_id, options_from_collection_for_select(@boards, "id", :name), class: "form-control dropdown grayText", :prompt => "Choose a trip to add this pin to" %>    
         </div>
         <div class="form-group">
-          <%= select_tag :category, options_for_select(['Restaurants', 'Hotels', 'Attractions']), class: "form-control dropdown", :prompt => "Choose a category" %>    
+          <%= select_tag :category, options_for_select(['Restaurants', 'Hotels', 'Attractions']), class: "form-control dropdown grayText", :prompt => "Choose a category" %>    
         </div>  
         <div>
           <%= submit_tag 'Create Pin', class: "btn btn-default" %>
