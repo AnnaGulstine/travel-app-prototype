@@ -13,13 +13,13 @@
         <input ng-model="chosenPlace" name="name" type="text" googleplace places-type="establishment" class="mh-line-size-4 addNewField" />      
       </div>
     </div>   
-      <div>
-        <%= text_field_tag :url, @pin.url, class: "mh-line-size-4 addNewField smallMargin", placeholder: "URL" %>
+      <div class="smallMarginTop">
+        <%= text_field_tag :url, @pin.url, class: "mh-line-size-4 addNewField", placeholder: "URL" %>
       </div>  
-      <div>
-        <%= text_field_tag :text, @pin.text, class: "mh-line-size-4 addNewField smallMargin", placeholder: "Notes" %>
+      <div class="smallMarginTop">
+        <%= text_field_tag :text, @pin.text, class: "mh-line-size-4 addNewField", placeholder: "Add Notes" %>
       </div>
-      <div>
+      <div class="smallMarginTop">
       <%= submit_tag 'Submit', class: "btn btn-default buttonMargin" %>
       <br />
       <%= link_to "Delete Pin", "/pins/#{@pin.id}", method: :delete, class: "btn btn-default smallMargin" %>

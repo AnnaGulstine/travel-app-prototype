@@ -58,7 +58,8 @@
           } else {
             urlString = '<a href=' + pin.url + '>Link to website</a>';
           }
-          infowindow.setContent(pin.name + '<br />' + pin.name + '<br />' + urlString + '<br />' + text);
+          infowindow.setContent(pin.name + '<br />' + urlString + '<br />' +
+            text + "<br />" + "<a href='/pins/" + pin.id + "'>" + "View / Edit this pin" + "</a>");
           infowindow.open(pinMap, marker);
         });
       });

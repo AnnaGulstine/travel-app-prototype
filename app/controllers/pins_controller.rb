@@ -23,9 +23,11 @@ class PinsController < ApplicationController
     unless params[:url].empty?
       page = MetaInspector.new(params[:url])
       image = page.images.best
+      url = params[:url]
+      url = url.delete('https://')
     end
     @pin = Pin.create(   
-      url: params[:url],
+      url: url,
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
@@ -45,10 +47,17 @@ class PinsController < ApplicationController
   def update
     pin_id = params[:id]
     @pin = Pin.find_by(id: pin_id)
+    unless params[:url].empty?
+      page = MetaInspector.new(params[:url])
+      image = page.images.best
+      url = params[:url]
+      url = url.delete('https://')
+    end    
     @pin.update(
       url: params[:url],
       text: params[:text],
-      name: params[:name]
+      name: params[:name],
+      category: params[:category].downcase
     )
     flash[:success] = "Pin successfully updated!"
     redirect_to "/pins/#{@pin.id}"
