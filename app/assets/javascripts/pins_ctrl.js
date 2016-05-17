@@ -23,6 +23,7 @@
 
     $scope.selectCategory = function(inputObject) {
       $scope.selectedCategory = inputObject;
+      setPins();
     };
 
     var bounds = new google.maps.LatLngBounds();
@@ -32,12 +33,14 @@
         content: 'Hello'
       });
       $scope.pins.forEach(function(pin) {
-        var myLatLng = new google.maps.LatLng(pin.latitude, pin.longitude);
-        var marker = new google.maps.Marker({
-          map: pinMap,
-          position: myLatLng,
-          icon: icons[pin.category]
-        });
+        if (pin.latitude) {
+          var myLatLng = new google.maps.LatLng(pin.latitude, pin.longitude);
+          var marker = new google.maps.Marker({
+            map: pinMap,
+            position: myLatLng,
+            icon: icons[pin.category]
+          });
+        }
 
         bounds.extend(marker.getPosition());
         pinMap.fitBounds(bounds);
@@ -81,6 +84,7 @@
             window.location.href = pinMap.url;
           });
         }
+
       });
     }
 

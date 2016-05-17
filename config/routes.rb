@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/boards/:id' => 'boards#show'
   delete '/boards/:id/' => 'boards#destroy'
 
+  get 'places' => 'pins#places'
+
   get '/pins' => 'pins#index'
   get '/pins/new' => 'pins#new'
   post '/pins' => 'pins#create'

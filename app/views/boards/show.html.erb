@@ -13,19 +13,16 @@
             <h5 ng-click="selectCategory(undefined)" id="clearFilters">CLEAR FILTERS</h5>
         </div>
       </div>
-      <div class="row mapRow">     
+      <div class="row mapRow">
+        <input class="mh-line-size-4 addNewField" placeholder="Search pins", ng-model="searchText">
         <div class="col-sm-3" id="pinSidebar">
-          <div ng-repeat="pin in pins | filter: selectedCategory">
-            <div ng-if="pin.name">
+          <div ng-repeat="pin in pins | filter: selectedCategory | filter: searchText">
             <h4>{{ pin.name }}</h4>
-            </div>
-            <div ng-if="pin.url">
-              <h4><a href="{{ pin.url }}">Visit website</a></h4>  
-            </div>
-            <h5>{{ pin.text }}</h5>
+            <h4><a href="{{ pin.url }}">Visit website</a></h4>  
+            <h5>Notes: {{ pin.text }}</h5>
             <h5>Category: {{ pin.category }}</h5>
-            <%= link_to "Edit this pin", "/pins/{{ pin.id }}/edit", class: "btn btn-default" %>
-            <hr>            
+            <%= link_to "View / Edit this pin", "/pins/{{ pin.id }}", class: "btn btn-default" %>
+            <hr>         
           </div>
         </div>
         <div class="col-sm-9" id="pinMap"></div>

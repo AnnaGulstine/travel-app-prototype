@@ -58,5 +58,9 @@ class PinsController < ApplicationController
     search_term = params[:search]
     @pins = Pin.where('lower(text) LIKE ?', "%" + search_term.downcase + "%")
     render 'index.html.erb'
-  end  
+  end
+
+  def places
+    
+  end
 end
