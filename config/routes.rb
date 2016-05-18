@@ -10,18 +10,25 @@ Rails.application.routes.draw do
   get 'boards/new' => 'boards#new'
   post 'boards' => 'boards#create'
   get '/boards/:id' => 'boards#show'
+  get '/boards/:id/edit' => 'boards#edit'
+  patch '/boards/:id' => 'boards#update'
   delete '/boards/:id/' => 'boards#destroy'
 
-  get 'places' => 'pins#places'
+  get '/places' => 'pins#places'
 
   get '/pins' => 'pins#index'
   get '/pins/new' => 'pins#new'
   post '/pins' => 'pins#create'
   get '/pins/:id' => 'pins#show'
   get '/pins/:id/edit' => 'pins#edit'
-  patch '/pins/:id' => 'pins#update'  
+  patch '/pins/:id' => 'pins#update'
+  delete '/pins/:id' => 'pins#destroy'
 
   post '/search' => 'pins#run_search'
+
+  get '/notes/new' => 'notes#new'
+  post '/notes' => 'notes#create'
+  get 'notes/:id' => 'notes#show'
 
   namespace :api do
     namespace :v1 do

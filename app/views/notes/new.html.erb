@@ -3,27 +3,19 @@
     <!-- HERO TEXT -->
     <div class="hero-caption">
       <div class="hero-text">
-        <h5 class="mh-line-size-3 font-alt marginBottom newTitle">Add a New Pin</h5>
-        <%= form_tag '/pins', method: :post do %>  
+        <h5 class="mh-line-size-3 font-alt marginBottom newTitle">Add a New Note</h5>
+        <%= form_tag '/notes', method: :post do %>  
         <div class="form-group">
-          <%= text_field_tag :url, "", :class => "mh-line-size-4 addNewField", :placeholder => "URL" %>
+          <%= text_field_tag :title, "", :class => "mh-line-size-4 addNewField", :placeholder => "Title" %>
         </div>
         <div class="form-group">
           <%= text_field_tag :text, "", :class => "mh-line-size-4 addNewField", :placeholder => "Add Notes" %>  
         </div>
-        <div ng-app="app" ng-controller="pinsController">   
-          <div class="form-group">
-            <input ng-model="chosenPlace" name="name" type="text" googleplace places-type="establishment" class="mh-line-size-4 addNewField" />      
-          </div>
-        </div>         
         <div class="form-group">
-          <%= select_tag :board_id, options_from_collection_for_select(@boards, "id", :name), class: "form-control dropdown grayText", :prompt => "Choose a trip to add this pin to" %>    
+          <%= select_tag :board_id, options_from_collection_for_select(@boards, "id", :name), class: "form-control dropdown grayText", :prompt => "Choose a trip to add this note to" %>    
         </div>
-        <div class="form-group">
-          <%= select_tag :category, options_for_select(['Restaurants', 'Hotels', 'Attractions']), class: "form-control dropdown grayText", :prompt => "Choose a category" %>    
-        </div>  
         <div>
-          <%= submit_tag 'Create Pin', class: "btn btn-default" %>
+          <%= submit_tag 'Create Note', class: "btn btn-default" %>
         </div>
         <% end %>
       </div>

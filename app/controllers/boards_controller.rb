@@ -38,6 +38,19 @@ class BoardsController < ApplicationController
     redirect_to "/boards/#{@board.id}"
   end
 
+  def edit
+    @board = Board.find_by(id: params[:id])
+  end
+
+  def update
+    @board = Board.find_by(id: params[:id])   
+    @board.update(
+      name: params[:name]
+    )
+    flash[:success] = "Trip successfully updated!"
+    redirect_to "/boards/#{@board.id}"
+  end  
+
   def destroy  
     @board = Board.find_by(id: params[:id])
     @board.destroy

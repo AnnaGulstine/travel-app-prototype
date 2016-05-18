@@ -23,11 +23,9 @@ class PinsController < ApplicationController
     unless params[:url].empty?
       page = MetaInspector.new(params[:url])
       image = page.images.best
-      url = params[:url]
-      url = url.delete('https://')
     end
     @pin = Pin.create(   
-      url: url,
+      url: Addressable::URI.heuristic_parse(params[:url]),
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
@@ -61,7 +59,14 @@ class PinsController < ApplicationController
     )
     flash[:success] = "Pin successfully updated!"
     redirect_to "/pins/#{@pin.id}"
-  end  
+  end
+
+  def destroy  
+    @pin = Pin.find_by(id: params[:id])
+    @pin.destroy
+    flash[:success] = "Pin successfully deleted!" 
+    redirect_to '/boards'
+  end   
 
   def run_search
     search_term = params[:search]
@@ -69,7 +74,6 @@ class PinsController < ApplicationController
     render 'index.html.erb'
   end
 
-  def places
-    
+  def places  
   end
 end

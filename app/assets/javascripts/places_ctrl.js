@@ -11,11 +11,12 @@
       console.log($scope.results);
     };
 
+
     $scope.setup = function() {
       var request = {
-        location: new google.maps.LatLng(52.48, -1.89),
+        location: new google.maps.LatLng(41.8781, -87.6298),
         radius: '500',
-        types: ['store']
+        types: ['point_of_interest']
       };
       var container = document.getElementById("places");
       var service = new google.maps.places.PlacesService(container);
@@ -23,3 +24,6 @@
     };
   });
 })();
+
+
+    

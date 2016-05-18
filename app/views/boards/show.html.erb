@@ -5,17 +5,22 @@
         <div class="col-sm-3">
           <h2 class="boardName"><%= @board.name.upcase %></h2>
         </div>
-        <div class="col-sm-8" id="filterDiv">
+          <h4 ng-click="changeColor('lightGray')">Change Map Color - Light Gray</h4>
+          <h4 ng-click="changeColor('purple')">Change Map Color - Purple</h4>
+        <div class="col-sm-7" id="filterDiv">
           <h4 id="filterBy">FILTER BY:</h4>
             <input type="submit" class="btn btn-default" name="Attractions" value="Attractions" ng-click="selectCategory('Attractions')">
             <input type="submit" class="btn btn-default" name="Hotels" value="Hotels" ng-click="selectCategory('Hotels')">
             <input type="submit" class="btn btn-default" name="Restaurants" value="Restaurants" ng-click="selectCategory('Restaurants')">
             <h5 ng-click="selectCategory(undefined)" id="clearFilters">CLEAR FILTERS</h5>
         </div>
+        <div class="col-sm-1" id="newNote">
+          <%= link_to "CREATE NEW NOTE", "/notes/new", class: "btn btn-default" %>
+        </div>
       </div>
       <div class="row mapRow">
-        <input class="mh-line-size-4 addNewField" placeholder="Search pins", ng-model="searchText">
         <div class="col-sm-3" id="pinSidebar">
+        <input class="mh-line-size-4 addNewField searchBox" placeholder="Search Pins", ng-model="searchText">        
           <div ng-repeat="pin in pins | filter: selectedCategory | filter: searchText">
             <h4>{{ pin.name }}</h4>
             <h4><a href="{{ pin.url }}">Visit website</a></h4>  

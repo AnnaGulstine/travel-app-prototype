@@ -1,8 +1,9 @@
 <div ng-app="app" ng-controller="placesController" ng-init="setup()">
   <div id="places">
   </div>
+  <div id="placesMap"></div>
   <div ng-repeat="result in results">
     <p>{{ result.name }}</p>
-    {{ result.photos[0].html_attributions[0] }}
+    {{ result.vicinity }}
   </div>
 </div>

@@ -204,6 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
