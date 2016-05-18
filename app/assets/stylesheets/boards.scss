@@ -10,7 +10,7 @@ html, body {
   width: 100%;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  height: 1200px;
+  height: 1000px;
 }
 
 .mapContainer {
@@ -30,6 +30,7 @@ html, body {
 .wrapper {
   background-color: #f3f3f3;
   height: 100%;
+  overflow-y: scroll;
 }
 
 .marginTop {
