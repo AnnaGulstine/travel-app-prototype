@@ -11,12 +11,18 @@
             <input type="submit" class="btn btn-default" name="Hotels" value="Hotels" ng-click="selectCategory('Hotels')">
             <input type="submit" class="btn btn-default" name="Restaurants" value="Restaurants" ng-click="selectCategory('Restaurants')">
             <h5 ng-click="selectCategory(undefined)" id="clearFilters">CLEAR FILTERS</h5>
-            <h4 id="newNote"><%= link_to "CREATE NEW NOTE", "/notes/new" %></h4>
+          <select onchange="location = this.value" class="notesDropdown">
+            <option selected="Your Notes">VIEW / CREATE NOTES</option>
+            <% @notes.each do |note| %>
+              <option value="/notes/<%= note.id %>/edit"><%= note.title %></option>
+            <% end %>
+            <option value="/notes/new">Create New Note</option>
+          </select>
         </div>
       </div>
       <div class="row mapRow">
-        <div class="col-sm-3" id="pinSidebar">
-        <input class="mh-line-size-4 addNewField searchBox" placeholder="Search Pins", ng-model="searchText">        
+        <div class="col-sm-3 pinSidebar">
+        <input class="mh-line-size-3 addNewField searchBox" placeholder="Search Pins", ng-model="searchText">        
           <div ng-repeat="pin in pins | filter: selectedCategory | filter: searchText">
             <h4>{{ pin.name }}</h4>
             <h4><a href="{{ pin.url }}">Visit website</a></h4>  

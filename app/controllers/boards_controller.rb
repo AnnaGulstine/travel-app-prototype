@@ -11,10 +11,10 @@ class BoardsController < ApplicationController
     if current_user
       @board = Board.find_by(id: params[:id])
       @categories = Category.all
+      @notes = Note.where(user_id: current_user.id)
       session[:board_id] = @board.id
       if @board
         @pins = @board.pins
-        # @suggested_pins = Board.where(address: )
       else
         redirect_to "/boards"
       end

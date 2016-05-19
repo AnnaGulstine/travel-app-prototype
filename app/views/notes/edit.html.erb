@@ -3,33 +3,31 @@
     <div class="hero-caption">
       <div class="hero-text">
         <div class="row">
-          <h3 class="mh-line-size-3 font-alt marginBottom newTitle" id="signUpTitle">Edit this Pin</h3>
+          <h3 class="mh-line-size-3 font-alt marginBottom newTitle" id="signUpTitle">View / Edit This Note</h3>
         </div>
 
-      <%= form_tag "/pins/#{@pin.id}", method: :patch do %>
+        <%= form_tag "/notes/#{@note.id}", method: :patch do %>
 
-    <div ng-app="app" ng-controller="pinsController">   
-      <div class="form-group">
-        <input ng-model="chosenPlace" name="name" type="text" googleplace places-type="establishment" class="mh-line-size-4 addNewField" />      
+          <div class="row">
+            <div class="smallMarginTop">
+              <%= text_field_tag :title, @note.title, class: "mh-line-size-4 addNewField" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="smallMarginTop">
+              <%= text_area_tag :text, @note.text, class: "mh-line-size-4 addNewField textArea" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="smallMarginTop">
+            <%= submit_tag 'Submit', class: "btn btn-default buttonMargin" %>
+            <br />
+            <%= link_to "Delete This Note", "/notes/#{@note.id}", method: :delete, class: "btn btn-default smallMarginTop" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </div>   
-      <div class="smallMarginTop">
-        <%= text_field_tag :url, @pin.url, class: "mh-line-size-4 addNewField", placeholder: "URL" %>
-      </div>  
-      <div class="smallMarginTop">
-        <%= text_field_tag :text, @pin.text, class: "mh-line-size-4 addNewField", placeholder: "Add Notes" %>
-      </div>
-      <div class="form-group smallMarginTop">
-        <%= select_tag :category, options_for_select(['restaurants', 'hotels', 'attractions']), class: "form-control dropdown grayText", :placeholder => @pin.category %>    
-      </div>            
-      <div class="smallMarginTop">
-      <%= submit_tag 'Submit', class: "btn btn-default buttonMargin" %>
-      <br />
-      <%= link_to "Delete This Pin", "/pins/#{@pin.id}", method: :delete, class: "btn btn-default smallMarginTop" %>
-      </div>
-      <% end %>
-        </div>
-      </div>
+    </div>
       <!-- YOUTUBE VIDEO BACKGROUND-->
       <div class="video-player" data-property="{videoURL:'/assets/oceanVideo.mp4', containment:'.module-video', quality:'large', startAt:0, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:0, mute:true}"></div>
       <!-- /YOUTUBE VIDEO BACKGROUND-->

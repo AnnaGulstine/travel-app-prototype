@@ -26,9 +26,13 @@ Rails.application.routes.draw do
 
   post '/search' => 'pins#run_search'
 
+  get '/notes' => 'notes#index'
   get '/notes/new' => 'notes#new'
   post '/notes' => 'notes#create'
-  get 'notes/:id' => 'notes#show'
+  get '/notes/:id' => 'notes#show'
+  get '/notes/:id/edit' => 'notes#edit'
+  patch '/notes/:id' => 'notes#update'
+  delete '/notes/:id' => 'notes#destroy'
 
   namespace :api do
     namespace :v1 do

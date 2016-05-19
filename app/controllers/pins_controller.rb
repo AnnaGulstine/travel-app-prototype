@@ -19,13 +19,15 @@ class PinsController < ApplicationController
   def create
     board = Board.find_by(id: params[:board_id])
     board_name = board.name
+    name = params[:name].capitalize
     coordinates = Geocoder.coordinates(params[:name])
     unless params[:url].empty?
       page = MetaInspector.new(params[:url])
       image = page.images.best
+      url = Addressable::URI.heuristic_parse(params[:url])
     end
-    @pin = Pin.create(   
-      url: Addressable::URI.heuristic_parse(params[:url]),
+    @pin = Pin.create(
+      url: url,
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
@@ -50,12 +52,20 @@ class PinsController < ApplicationController
       image = page.images.best
       url = params[:url]
       url = url.delete('https://')
-    end    
+      page = MetaInspector.new(params[:url])
+      image = page.images.best      
+    end
+    if params[:name]
+      coordinates = Geocoder.coordinates(params[:name])
+    end
     @pin.update(
       url: params[:url],
       text: params[:text],
       name: params[:name],
-      category: params[:category].downcase
+      category: params[:category],
+      image: image,
+      latitude: coordinates[0],
+      longitude: coordinates[1]
     )
     flash[:success] = "Pin successfully updated!"
     redirect_to "/pins/#{@pin.id}"

@@ -1,3 +1,32 @@
 // Place all the styles related to the Notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notesDropdown {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 11px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+       -o-border-radius: 0;
+          border-radius: 0;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  display: inline-block;
+  font-weight: normal;
+  vertical-align: middle;
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-image: none;
+  box-shadow: 0.5px 0.2px 0.5px gray;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 8px 37px;
+  line-height: 1.42857143;
+  border-radius: 0 !important;
+  width: 200px;
+  height: 35px;
+  float: right;
+}

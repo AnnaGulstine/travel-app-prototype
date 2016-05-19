@@ -8,7 +8,7 @@
 }
 
 .pinMapContainer {
-  height: 900px;
+  height: 800px;
 }
 
 .pinName {
@@ -23,12 +23,6 @@
 
 #filterDiv {
   margin-top: 30px;
-}
-
-#pinSidebar {
-  height: 900px;
-  overflow-y: scroll;
-  background-color: #fff;
 }
 
 .inputText {
@@ -73,4 +67,15 @@
   display: inline;
   float: right;
   margin-bottom: 10px;
+}
+
+.pinSidebar {
+  padding: 20px;
+  height: 800px;
+  overflow-y: scroll;
+  background-color: #fff;  
+}
+
+.searchBox {
+  width: 99%;
 }
