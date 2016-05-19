@@ -29,7 +29,7 @@
   <link href="/assets/css/style.css" rel="stylesheet">
   <script src='https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV[ 'MY_API' ]}" %>&libraries=places'></script>    
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -102,7 +102,7 @@
     </div>
     <!-- NAVIGATION -->
   <nav class="navbar navbar-custom navbar-transparent navbar-light navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <!-- LOGO -->
         <a class="navbar-brand" href='/boards'>
