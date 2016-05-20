@@ -5,12 +5,18 @@ class Api::V1::PinsController < Api::ApiController
   end
 
   def create
+    unless params[:url].empty?
+      page = MetaInspector.new(params[:url])
+      image = page.images.best
+      url = Addressable::URI.heuristic_parse(params[:url])
+    end
     @pin = Pin.new(
       text: params[:text],
       name: params[:name],
       board_id: params[:board_id],
       category: params[:category],
-      url: params[:url]
+      url: params[:url],
+      image: image
     )
     @pin.save
     render 'show.json.jbuilder'    

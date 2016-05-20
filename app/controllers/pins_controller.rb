@@ -5,7 +5,6 @@ class PinsController < ApplicationController
     board_id = Board.find_by(id: params[:id])
     @pins = Pin.find_by(id: board_id) || Pin.all
     @categories = Category.all
-    # @pins = Pin.find_by(name: params[:name])
   end
 
   def show
@@ -17,6 +16,7 @@ class PinsController < ApplicationController
   end
 
   def create
+    Geocoder.configure(:timeout => 3000)
     board = Board.find_by(id: params[:board_id])
     board_name = board.name
     name = params[:name].capitalize
@@ -36,7 +36,7 @@ class PinsController < ApplicationController
       longitude: coordinates[1],
       image: image
     )
-    redirect_to "/boards/#{@pin.board_id}"
+    redirect_to "/boards/#{params[:board_id]}"
   end
 
   def edit

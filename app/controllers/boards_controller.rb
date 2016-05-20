@@ -35,7 +35,7 @@ class BoardsController < ApplicationController
       # latitude: coordinates[0],
       # longitude: coordinates[1]
     )
-    redirect_to "/boards/#{@board.id}"
+    redirect_to "/boards"
   end
 
   def edit

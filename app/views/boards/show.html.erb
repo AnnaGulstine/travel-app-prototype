@@ -26,8 +26,10 @@
           <div ng-repeat="pin in pins | filter: selectedCategory | filter: searchText">
             <h4>{{ pin.name }}</h4>
             <h4><a href="{{ pin.url }}">Visit website</a></h4>  
-            <h5>Notes: {{ pin.text }}</h5>
-            <h5>Category: {{ pin.category }}</h5>
+            <% if @text %>
+              <h5>Notes: {{ pin.text }}</h5>
+            <% end %>
+            <h4>Category: {{ pin.category }}</h4>
             <%= link_to "View / Edit this pin", "/pins/{{ pin.id }}", class: "btn btn-default" %>
             <hr>         
           </div>

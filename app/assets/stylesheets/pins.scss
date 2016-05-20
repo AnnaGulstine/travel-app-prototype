@@ -73,9 +73,24 @@
   padding: 20px;
   height: 800px;
   overflow-y: scroll;
-  background-color: #fff;  
+  background-color: #fff;
 }
 
 .searchBox {
   width: 99%;
+}
+
+#infoWindowLeft {
+  float: left;
+  width: 250px;
+}
+
+#infoWindowRight {
+  float: right;
+  width: 250px;
+}
+
+#infoWindowImage {
+  max-width: 225px;
+  margin: 0 auto;
 }
