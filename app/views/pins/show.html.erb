@@ -11,7 +11,9 @@
       <% if @pin.text %>
         <h3>Your notes: </h3><h5><%= @pin.text %></h5>
       <% end %>
-      <h3>Category: </h3><h5><%= @pin.category %></h5>
+      <h3 style="display: inline">Category: </h3><h4 style="display: inline"><%= @pin.category %></h4>
+      <br />
+      <h4><%= link_to "Back to Trip Page", "/boards/#{@pin.board_id}", method: :get, class: "smallMarginTop" %></h4>
     </div>
     <div class="col-sm-4">
       <img src="<%= @pin.image %>" class="img-responsive" />
