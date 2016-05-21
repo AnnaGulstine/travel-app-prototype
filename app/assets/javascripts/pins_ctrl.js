@@ -148,8 +148,7 @@
             zoom: 13,
             center: results[0].geometry.location,
             styles: $scope.mapStyles.blue,
-            mapTypeId: 'roadmap',
-            url: "http://localhost:3000/pins/new"
+            mapTypeId: 'roadmap'
           };
           pinMap = new google.maps.Map(document.getElementById('pinMap'), mapOptions);
           setPins();
