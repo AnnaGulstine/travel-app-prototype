@@ -1,4 +1,5 @@
 /* global angular, google */
+
 (function() {
   angular.module("app").controller("placesController", function($scope, $http) {
 

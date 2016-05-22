@@ -48,8 +48,6 @@
 
     function setupMap(boards) {
       var mapOptions = {
-        // center: new google.maps.LatLng(0, 0),
-        // zoom: 3,
         mapTypeId: 'roadmap',
         scrollwheel: false,
         styles: styles,
