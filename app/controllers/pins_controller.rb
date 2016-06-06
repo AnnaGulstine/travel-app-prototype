@@ -51,7 +51,7 @@ class PinsController < ApplicationController
       page = MetaInspector.new(params[:url])
       image = page.images.best
       url = params[:url]
-      url = url.delete('https://')
+      url.standardize_url
       page = MetaInspector.new(params[:url])
       image = page.images.best      
     end
