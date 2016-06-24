@@ -27,13 +27,9 @@ class BoardsController < ApplicationController
   end
 
   def create
-    # coordinates = Geocoder.coordinates(params[:address])
-    # console.log(coordinates)
     @board = Board.create(
       name: params[:name],
       user_id: current_user.id.to_i
-      # latitude: coordinates[0],
-      # longitude: coordinates[1]
     )
     redirect_to "/boards"
   end
