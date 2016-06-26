@@ -30,6 +30,9 @@
   function boardsController($scope) {
     $scope.gPlace;
   }
+  function pinsController($scope) {
+    $scope.gPlace;
+  } 
 }());
 
 $(window).scroll(function(){

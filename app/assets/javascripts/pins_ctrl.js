@@ -1,4 +1,5 @@
 /* global angular, google */
+/* eslint no-unused-vars: "marker" */
 
   angular.module('app', [])
     .controller('pinsController', ['$scope', '$http', function pinsController($scope, $http) {
