@@ -1,4 +1,7 @@
 /* global angular, google */
+
+"use strict";
+
 (function() {
   angular.module("app").controller("pinsController", function($scope, $http) {
 
