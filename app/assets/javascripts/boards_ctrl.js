@@ -1,9 +1,12 @@
 /* global angular, google */
 /* eslint no-unused-vars: "marker" */
 
-var app = angular.module('app', []);
+// var app = angular.module('app', []);
 
-app.controller('boardsController', ['$scope', '$http', '$q', function($scope, $http, $q) {
+// app.controller('boardsController', ['$scope', '$http', '$q', function($scope, $http, $q) {
+
+  angular.module('app', [])
+    .controller('boardsController', ['$scope', '$http', '$q', function boardsController($scope, $http, $q) {
 
 // (function() {
 //   angular.module("app").controller("boardsController", function($scope, $http, $q) {
