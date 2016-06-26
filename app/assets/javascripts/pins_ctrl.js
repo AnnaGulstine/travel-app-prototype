@@ -1,11 +1,7 @@
 /* global angular, google */
 
-// (function() {
-//   angular.module("app").controller("pinsController", function($scope, $http) {
-
-  var app = angular.module('app', []);
-
-  app.controller('pinsController', ['$scope', '$http', function($scope, $http) {
+  angular.module('app', [])
+    .controller('pinsController', ['$scope', '$http', function pinsController($scope, $http) {
 
     var pinMap;
 
