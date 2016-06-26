@@ -3,7 +3,7 @@
 
 var app = angular.module('app', []);
 
-app.controller('boardsController', ['$scope', '$http', '$q', function($scope) {
+app.controller('boardsController', ['$scope', '$http', '$q', function($scope, $http, $q) {
 
 // (function() {
 //   angular.module("app").controller("boardsController", function($scope, $http, $q) {
