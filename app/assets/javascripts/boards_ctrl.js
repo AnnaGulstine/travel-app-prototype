@@ -2,7 +2,12 @@
 /* eslint no-unused-vars: "marker" */
 
 (function() {
-  angular.module("app").controller("boardsController", function($scope, $http, $q) {
+  angular.module("app")
+    .controller("boardsController", boardsController);
+
+    boardsController.$inject = ['$scope', '$http', '$q'];
+
+    function boardsController($scope, $http, $q) {
 
     $scope.gPlace;
   
