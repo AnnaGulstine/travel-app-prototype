@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//= depend_on_asset "oceanBackground2.png"
-
 .modal-dialog {
   margin-top: 160px;
 }
@@ -31,8 +29,7 @@
 }
 
 #hero, .module-hero .module-video .module-full-height .bg-light-30 {
-  // background: url( '/assets/oceanBackground2.png' ) !important;
-  background-image:url('<%= asset_path("oceanBackground2.png") %> ') !important;  
+  background: url( '/assets/oceanBackground2.png' ) !important; 
   background-size: cover;
   opacity: 1;
 }
