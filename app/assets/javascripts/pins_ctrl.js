@@ -1,6 +1,11 @@
 /* global angular, google */
 (function() {
-  angular.module("app").controller("pinsController", function($scope, $http) {
+  angular.module("app")
+    .controller("pinsController", pinsController);
+
+    pinsController.$inject = ['$scope', '$http'];
+
+    function pinsController($scope, $http) {
 
     var pinMap;
 
