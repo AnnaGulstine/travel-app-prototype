@@ -1,9 +1,11 @@
 /* global angular, google */
 
-"use strict";
+// (function() {
+//   angular.module("app").controller("pinsController", function($scope, $http) {
 
-(function() {
-  angular.module("app").controller("pinsController", function($scope, $http) {
+  var app = angular.module('app', []);
+
+  app.controller('pinsController', ['$scope', '$http', function($scope, $http) {
 
     var pinMap;
 
@@ -163,5 +165,4 @@
       });
     }
     window.$scope = $scope;
-  });
-})();
+  }])();
