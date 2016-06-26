@@ -1,10 +1,12 @@
 /* global angular, google */
 /* eslint no-unused-vars: "marker" */
 
-"use strict";
+var app = angular.module('app', []);
 
-(function() {
-  angular.module("app").controller("boardsController", function($scope, $http, $q) {
+app.controller('boardsController', ['$scope', '$http', '$q', function($scope) {
+
+// (function() {
+//   angular.module("app").controller("boardsController", function($scope, $http, $q) {
 
     $scope.gPlace;
   
@@ -64,5 +66,4 @@
       $scope.setMarkers();
     }
     window.$scope = $scope;
-  });
-})();
+}])();
