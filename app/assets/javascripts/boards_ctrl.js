@@ -2,7 +2,7 @@
 /* eslint no-unused-vars: "marker" */
 
   angular.module('app', [])
-    .controller('boardsController', ['$scope', '$http', '$q', function boardsController($scope, $http, $q) {
+  .controller('boardsController', ['$scope', '$http', '$q', function boardsController($scope, $http, $q) {
 
     $scope.gPlace;
   

@@ -32,7 +32,7 @@
   }
   function pinsController($scope) {
     $scope.gPlace;
-  } 
+  }
 }());
 
 $(window).scroll(function(){
